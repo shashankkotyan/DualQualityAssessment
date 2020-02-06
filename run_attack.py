@@ -31,7 +31,7 @@ import OurAttacks
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(description=('Running PixelAttack and/or ThresholdAttack'))
+    parser = argparse.ArgumentParser(description=('Dual Quality Assessment'))
     
     parser.add_argument('attack',                         type=str,                help='Name of attack to be used')
     

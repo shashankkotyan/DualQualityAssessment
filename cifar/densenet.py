@@ -28,7 +28,7 @@ class DenseNet(CifarModel):
 
         def bn_relu(x, name=None):
 
-            if self.args.use_batchnormalisation: x = layers.BatchNormalization()(x)
+            x = layers.BatchNormalization()(x)
 
             if name is None: x = layers.Activation('relu')(x)
             else:            x = layers.Activation('relu', name=name)(x)

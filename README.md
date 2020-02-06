@@ -1,39 +1,35 @@
 # Dual Quality Assessment
 
-This github repository contains the official code for the papers:
-- Robustness Assessment for Adversarial Machine Learning: Problems, Solutions and a Survey of Current Neural Networks and Defenses [Paper Link](https://arxiv.org/abs/1906.06026)
-- One pixel attack for fooling deep neural networks [Paper Link](https://ieeexplore.ieee.org/abstract/document/8601309)
+This GitHub repository contains the official code for the papers,
 
 > [Robustness Assessment for Adversarial Machine Learning: Problems, Solutions and a Survey of Current Neural Networks and Defenses](https://arxiv.org/abs/1906.06026)\
 > Danilo Vasconcellos Vargas, Shashank Kotyan\
 > _arXiv:1906.06026_.
-> 
+
 > [One pixel attack for fooling deep neural networks](https://ieeexplore.ieee.org/abstract/document/8601309)\
 > Jiawei Su, Danilo Vasconcellos Vargas, Kouichi Sakurai\
 > _IEEE Transactions on Evolutionary Computation (2019), 23(5), 828-841_.
  
-
 ## Citation
 
 If this work helps your research and/or project in anyway, please cite:
 
-```
+```bibtex
 @article{vargas2019robustness,
-  title={Robustness Assessment for Adversarial Machine Learning: Problems, Solutions and a Survey of Current Neural Networks and Defenses},
-  author={Vargas, Danilo Vasconcellos and Kotyan, Shashank},
-  journal={arXiv preprint arXiv:1906.06026},
-  year={2019}
+  title   = {Robustness Assessment for Adversarial Machine Learning: Problems, Solutions and a Survey of Current Neural Networks and Defenses},
+  author  = {Vargas, Danilo Vasconcellos and Kotyan, Shashank},
+  journal = {arXiv preprint arXiv:1906.06026},
+  year    = {2019}
 }
-
 @article{su2019one,
-  title={One pixel attack for fooling deep neural networks},
-  author={Su, Jiawei and Vargas, Danilo Vasconcellos and Sakurai, Kouichi},
-  journal={IEEE Transactions on Evolutionary Computation},
-  volume={23},
-  number={5},
-  pages={828--841},
-  year={2019},
-  publisher={IEEE}
+  title     = {One pixel attack for fooling deep neural networks},
+  author    = {Su, Jiawei and Vargas, Danilo Vasconcellos and Sakurai, Kouichi},
+  journal   = {IEEE Transactions on Evolutionary Computation},
+  volume    = {23},
+  number    = {5},
+  pages     = {828--841},
+  year      = {2019},
+  publisher = {IEEE}
 }
 ```
 
@@ -45,7 +41,9 @@ The code is tested on Ubuntu 18.04.3 with Python 3.7.4.
 
 ### Requirements
 
-To run the code in the tutorial locally, a dedicated GPU suitable for running with (`tensorflow-gpu`) is recommended. It is recommended to install Anaconda. 
+To run the code in the tutorial locally, it is recommended, 
+- a dedicated GPU suitable for running, and
+- install Anaconda. 
 
 The following python packages are required to run the code. 
 - `cma==2.7.0`
@@ -93,6 +91,12 @@ pip install -r ./requirements.txt
     ```bash
     python -u run_attack.py threshold [ARGS] > run.txt
     ```
+
+5. Calculate the statstics for the attacks.
+
+```bash
+python -u run_stats.py > run_stats.txt     
+```
 
 ## Arguments to run run_attack.py
 
