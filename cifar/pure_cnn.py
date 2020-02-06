@@ -17,6 +17,7 @@ class PureCnn(CifarModel):
         self.name           = 'pure_cnn'
 
         self.learn_rate     = 1.0e-4
+        self.weight_decay   = 0.0001
 
         CifarModel.__init__(self, args)
 
