@@ -21,7 +21,7 @@ class Attack():
 
         self.model = self.set_model()
         
-        self.columns = ['attack', 'model', 'threshold', 'image', 'true', 'predicted', 'success', 'cdiff', 'prior_probs', 'predicted_probs', 'perturbation', 'attacked_image']
+        self.columns = ['attack', 'model', 'threshold', 'image', 'true', 'predicted', 'success', 'cdiff', 'prior_probs', 'predicted_probs', 'perturbation', 'attacked_image', 'l2_distance']
 
     
     def set_model(self):
@@ -59,11 +59,12 @@ class Attack():
         success         = predicted_class != actual_class
         
         cdiff           = prior_probs[actual_class] - predicted_probs[actual_class]
+        l2_distance     = np.linalg.norm(original_image.astype(np.float64)-attacked_image.astype(np.float64))
 
         # if not os.path.exists(f"./logs/images/{self.dir_path}"):  os.makedirs(f"./logs/images/{self.dir_path}")
         # plot_utils.plot_image(f"./logs/images/{self.dir_path}", self.img, attacked_image, self.x, self.model.class_names[actual_class], self.model.class_names[predicted_class], limit)
         
-        return [[self.attack_name, self.model.name, limit, self.img, actual_class, predicted_class, success, cdiff, prior_probs, predicted_probs, attack_result, attacked_image]], success
+        return [[self.attack_name, self.model.name, limit, self.img, actual_class, predicted_class, success, cdiff, prior_probs, predicted_probs, attack_result, attacked_image, l2_distance]], success
 
     
     def start(self):
