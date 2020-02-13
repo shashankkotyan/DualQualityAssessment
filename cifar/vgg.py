@@ -1,26 +1,34 @@
 #!/usr/bin/env python
 
-'''
+"""
 Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
-'''
+"""
 
-from tensorflow.keras import initializers, layers, regularizers
 from cifar.cifar_model import CifarModel
 
 
 class VGG(CifarModel):
-
+    """
+    TODO: Write Comment
+    """
 
     def __init__(self, args):
+        """
+        TODO: Write Comment
+        """
 
         self.dropout        = 0.5
         self.weight_decay   = 0.0005
 
         CifarModel.__init__(self, args)
 
-
     def network(self, img_input):
+        """
+        TODO: Write Comment
+        """
+
+        from tensorflow.keras import initializers, layers, regularizers
 
         x = layers.Conv2D(64, (3, 3), padding='same', kernel_initializer=initializers.he_normal(), kernel_regularizer=regularizers.l2(self.weight_decay), name='block1_conv1')(img_input)
         x = layers.BatchNormalization()(x)
@@ -115,27 +123,39 @@ class VGG(CifarModel):
 
         return x
 
+    def scheduler(self, epoch): 
+        """
+        TODO: Write Comment
+        """
 
-    def scheduler(self, epoch): return 0.1 * (0.5 ** (epoch // 20))
-
+        return 0.1 * (0.5 ** (epoch // 20))
 
 class VGG16(VGG):
-
+    """
+    TODO: Write Comment
+    """
 
     def __init__(self, args):
+        """
+        TODO: Write Comment
+        """
 
-        self.name = 'vgg16'
+        self.name = 'VGG-16'
         self.vgg_type = 16
 
         VGG.__init__(self, args)
 
-
 class VGG19(VGG):
-
+    """
+    TODO: Write Comment
+    """
 
     def __init__(self, args):
+        """
+        TODO: Write Comment
+        """
 
-        self.name = 'vgg19'
+        self.name = 'VGG-19'
         self.vgg_type = 19
         
         VGG.__init__(self, args)

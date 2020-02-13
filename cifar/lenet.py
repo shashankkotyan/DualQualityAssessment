@@ -1,27 +1,35 @@
 #!/usr/bin/env python
 
-'''
+"""
 Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
-'''
+"""
 
-from tensorflow.keras import initializers, layers, regularizers
 from cifar.cifar_model import CifarModel
 
 
 class LeNet(CifarModel):
-
+    """
+    TODO: Write Comment
+    """
 
     def __init__(self, args):
+        """
+        TODO: Write Comment
+        """
 
-        self.name           = 'lenet'
+        self.name           = 'LeNet'
 
         self.weight_decay   = 0.0001
 
         CifarModel.__init__(self, args)
         
-
     def network(self, img_input):
+        """
+        TODO: Write Comment
+        """
+
+        from tensorflow.keras import initializers, layers, regularizers
         
         x = layers.Conv2D(6, (5, 5), padding='valid', kernel_initializer=initializers.he_normal(), kernel_regularizer=regularizers.l2(self.weight_decay))(img_input)
         x = layers.BatchNormalization()(x)
@@ -46,8 +54,10 @@ class LeNet(CifarModel):
         
         return x
 
-
     def scheduler(self, epoch):
+        """
+        TODO: Write Comment
+        """
 
         if epoch <= 60:  return 0.05
         if epoch <= 120: return 0.01

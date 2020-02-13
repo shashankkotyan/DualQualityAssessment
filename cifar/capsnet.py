@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-'''
+"""
 Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
-'''
+"""
 
 import tensorflow as tf
 from tensorflow.keras import initializers, layers, models, backend as K
@@ -17,8 +17,8 @@ class CapsNet(CifarModel):
 
     def __init__(self, args):
 
-        self.name               = 'capsnet'
-        self.num_routes         = 3
+        self.name       = 'CapsNet'
+        self.num_routes = 3
 
         CifarModel.__init__(self, args)
         

@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-'''
+"""
 Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
-'''
+"""
 
 import cifar.cifar_model
 

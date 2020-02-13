@@ -1,17 +1,22 @@
 #!/usr/bin/env python
 
-'''
+"""
 Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
-'''
+"""
 
 from model import Model
 
 
 class CifarModel(Model):
-
+    """
+    TODO: Write Comment
+    """
 
     def __init__(self, args):
+        """
+        TODO: Write Comment
+        """
         
         self.img_rows, self.img_cols, self.img_channels = 32, 32, 3
         
@@ -20,15 +25,14 @@ class CifarModel(Model):
         
         Model.__init__(self, args)
 
-
     def dataset(self):
+        """
+        TODO: Write Comment
+        """
         
         from tensorflow.keras import datasets, utils
         
         self.num_images = {'train': 50000, 'test': 10000}
-
-        self.mean = [0.,0.,0.]
-        self.std  = [255., 255., 255.]
 
         if self.args.use_dataset == 0:
  
@@ -60,6 +64,9 @@ class CifarModel(Model):
                                 'Train',    'Trout',         'Tulip',     'Turtle',       'Wardrobe',  'Whale',   'Willow Tree', 'Wolf',       'Woman',        'Worm'
                                 ]
 
+            self.mean = [0.,0.,0.]
+            self.std  = [255., 255., 255.]
+
             __datasets = datasets.cifar100
             
         (self.raw_x_train, self.raw_y_train), (self.raw_x_test, self.raw_y_test) = __datasets.load_data()
@@ -71,8 +78,10 @@ class CifarModel(Model):
         self.iterations_train = (self.num_images['train'] // self.batch_size) + 1   
         self.iterations_test  = (self.num_images['test']  // self.batch_size) + 1  
 
-
-    def build_model(self): 
+    def build_model(self):
+        """
+        TODO: Write Comment
+        """ 
 
         from tensorflow.keras import layers, models
         

@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-'''
+"""
 Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
-'''
+"""
 
 from matplotlib import pyplot as plt
 import seaborn as sns
@@ -14,9 +14,14 @@ from tensorflow.keras import callbacks
 
 
 class PlotTraining(callbacks.Callback):
-
+    """
+    TODO: Write Comment
+    """
 
     def __init__(self, filepath=""):
+        """
+        TODO: Write Comment
+        """
 
         super(PlotTraining, self).__init__()
 
@@ -25,6 +30,9 @@ class PlotTraining(callbacks.Callback):
 
     
     def reset(self):
+        """
+        TODO: Write Comment
+        """
 
         self.i = 0
         self.x = []
@@ -36,6 +44,9 @@ class PlotTraining(callbacks.Callback):
 
     
     def on_epoch_end(self, epoch, logs={}):
+        """
+        TODO: Write Comment
+        """
 
         self.x.append(self.i+1)
         self.logs.append(logs)
@@ -44,9 +55,7 @@ class PlotTraining(callbacks.Callback):
         self.acc.append(logs.get('accuracy'))
         self.val_acc.append(logs.get('val_accuracy'))
         self.i += 1
-        
-        if (self.i < 3): return
-                
+                        
         fig        = plt.figure(1, figsize=(16,9),dpi=300)
         (ax1, ax2) = fig.subplots(1,2)
         
@@ -70,8 +79,14 @@ class PlotTraining(callbacks.Callback):
 
 
 def plot_image(text, index, adversarial_image, original_image, label_true, label_pred, limit):
+    """
+    TODO: Write Comment
+    """
 
     def plot(index, image, label, label_type=""):
+        """
+        TODO: Write Comment
+        """
 
         if image.ndim == 4 and image.shape[0] == 1: image = image[0]
 

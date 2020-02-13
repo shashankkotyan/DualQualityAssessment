@@ -1,33 +1,49 @@
 #!/usr/bin/env python
 
-'''
+"""
 Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
-'''
+"""
 
-from tensorflow.keras import initializers, layers, regularizers
 from cifar.cifar_model import CifarModel
 
 
 class WideResNet(CifarModel):
-   
+    """
+    TODO: Write Comment
+    """
 
     def __init__(self, args):
+        """
+        TODO: Write Comment
+        """
 
-        self.name           = 'wide_resnet'
+        self.name         = 'WideResNet'
         
-        self.depth          = 16
-        self.wide           = 8
-        self.weight_decay   = 0.0005
+        self.depth        = 16
+        self.wide         = 8
+        self.weight_decay = 0.0005
 
         CifarModel.__init__(self, args)
 
-    
     def network(self, img_input):
+        """
+        TODO: Write Comment
+        """
         
-        def conv3x3(x,filters): return layers.Conv2D(filters=filters, kernel_size=(3,3), strides=(1,1), padding='same', kernel_initializer=initializers.he_normal(), kernel_regularizer=regularizers.l2(self.weight_decay))(x)
+        from tensorflow.keras import initializers, layers, regularizers
+
+        def conv3x3(x,filters):
+            """
+            TODO: Write Comment
+            """
+
+            return layers.Conv2D(filters=filters, kernel_size=(3,3), strides=(1,1), padding='same', kernel_initializer=initializers.he_normal(), kernel_regularizer=regularizers.l2(self.weight_decay))(x)
 
         def residual_block(img_input, out_filters, increase_filter=False):
+            """
+            TODO: Write Comment
+            """
 
             if increase_filter: first_stride = (2,2)
             else:               first_stride = (1,1)
@@ -53,6 +69,9 @@ class WideResNet(CifarModel):
             return block
 
         def wide_residual_layer(x,out_filters,increase_filter=False):
+            """
+            TODO: Write Comment
+            """
 
             x = residual_block(x, out_filters, increase_filter)
 
@@ -75,8 +94,10 @@ class WideResNet(CifarModel):
         
         return x
 
-    
     def scheduler(self, epoch):
+        """
+        TODO: Write Comment
+        """
 
         if epoch <= 60:  return 0.1
         if epoch <= 120: return 0.02

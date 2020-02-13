@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-'''
+"""
 Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
-'''
+"""
 
 import numpy as np
 from itertools import product
@@ -15,9 +15,14 @@ from attack import Attack
 
 
 class OurAttack(Attack):
-   
-    
+    """
+    TODO: Write Comment
+    """
+
     def __init__(self, args):
+        """
+        TODO: Write Comment
+        """
         
         Attack.__init__(self, args)
         
@@ -28,6 +33,9 @@ class OurAttack(Attack):
 
     
     def set_ES(self, no=1):
+        """
+        TODO: Write Comment
+        """
         
         if no == 0:
             
@@ -37,17 +45,15 @@ class OurAttack(Attack):
         elif no == 1:
             
             self.DE, self.CMAES = False, True
-            self.attack_name += '_CMAES-withexplicitbounds'
-        
-        elif no == 2:
-            
-            self.DE, self.CMAES = False, True
-            self.attack_name += '_CMAES-withoutbounds'
+            self.attack_name += '_CMAES'
         
         else: raise Exception('Unknown Evolutionary Strategy, please choose a supported strategy')
 
     
     def predict_classes(self, xs, target_class):
+        """
+        TODO: Write Comment
+        """
         
         predictions = self.model.predict(self.perturb_image(xs))[:,target_class]
         
@@ -55,6 +61,9 @@ class OurAttack(Attack):
 
     
     def attack_success(self, xs, target_class):
+        """
+        TODO: Write Comment
+        """
         
         predicted_class = np.argmax(self.model.predict(self.perturb_image(xs))[0])
         
@@ -62,6 +71,9 @@ class OurAttack(Attack):
 
     
     def attack(self, target_class, limit):
+        """
+        TODO: Write Comment
+        """
         
         bounds, initial = self.get_bounds(limit)                     
         predict_fn      = lambda xs: self.predict_classes(xs, target_class)
@@ -84,7 +96,7 @@ class OurAttack(Attack):
             opts.set('verb_log', 40000)
             opts.set('verb_time', False)
             
-            if "CMAES-withexplicitbounds" in self.attack_name: opts.set('bounds', bounds)
+            opts.set('bounds', bounds)
                             
             if  "Pixel"      in self.attack_name: std = 63
             elif "Threshold" in self.attack_name: std = limit
@@ -102,6 +114,9 @@ class OurAttack(Attack):
 
     
     def attack_image(self, target_class):
+        """
+        TODO: Write Comment
+        """
 
         image_results = []
         start, end = 1, 127
@@ -125,15 +140,28 @@ class OurAttack(Attack):
 
 
 class PixelAttack(OurAttack):
-    
+    """
+    TODO: Write Comment
+    """
 
-    def __init__(self, args): OurAttack.__init__(self, args)
+    def __init__(self, args): 
+        """
+        TODO: Write Comment
+        """
 
-    
-    def set_attack_name(self): self.attack_name = "Pixel"
+        OurAttack.__init__(self, args)
 
-    
+    def set_attack_name(self): 
+        """
+        TODO: Write Comment
+        """
+
+        self.attack_name = "Pixel"
+
     def get_bounds(self, th):
+        """
+        TODO: Write Comment
+        """
 
         initial = []
 
@@ -172,8 +200,10 @@ class PixelAttack(OurAttack):
 
         return bounds, initial
 
-    
     def perturb_image(self, xs):
+        """
+        TODO: Write Comment
+        """
         
         if xs.ndim < 2: xs = np.array([xs])
         
@@ -192,12 +222,23 @@ class PixelAttack(OurAttack):
 
 
 class ThresholdAttack(OurAttack):
+    """
+    TODO: Write Comment
+    """
     
-
-    def __init__(self, args): OurAttack.__init__(self, args)
+    def __init__(self, args): 
+        """
+        TODO: Write Comment
+        """
+        OurAttack.__init__(self, args)
 
     
-    def set_attack_name(self): self.attack_name = "Threshold"
+    def set_attack_name(self): 
+        """
+        TODO: Write Comment
+        """
+
+    self.attack_name = "Threshold"
 
     
     def get_bounds(self, th):
