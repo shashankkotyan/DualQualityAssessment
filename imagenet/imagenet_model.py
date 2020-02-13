@@ -18,12 +18,9 @@ class ImagenetModel(Model):
         TODO: Write Comment
         """
 
-        self.batch_size = 128 
-        self.epochs     = 200
+        Model.__init__(self, args)
 
         self.weight_decay = 0.0001
-
-        Model.__init__(self, args)
 
     def dataset(self):
         """
@@ -66,11 +63,11 @@ class ImagenetModel(Model):
                 offset_y, offset_x, _          = tf.unstack(bbox_begin)
                 target_height, target_width, _ = tf.unstack(bbox_size)
 
-                image = tf.compat.v1.image.resize(tf.image.random_flip_left_right(tf.image.decode_and_crop_jpeg(features['image/encoded'], tf.stack([offset_y, offset_x, target_height, target_width]), channels=self.img_channels)), [self.img_rows, self.img_cols], method=tf.image.ResizeMethod.BILINEAR, align_corners=False)
+                image = tf.compat.v1.image.resize(tf.image.random_flip_left_right(tf.image.decode_and_crop_jpeg(features['image/encoded'], tf.stack([offset_y, offset_x, target_height, target_width]), channels=3)), [self.size, self.size], method=tf.image.ResizeMethod.BILINEAR, align_corners=False)
 
             else:
 
-                image = tf.image.decode_jpeg(features['image/encoded'], channels=self.img_channels)
+                image = tf.image.decode_jpeg(features['image/encoded'], channels=3)
 
                 shape = tf.shape(input=image)
                 height, width = shape[0], shape[1]
@@ -83,9 +80,9 @@ class ImagenetModel(Model):
                 shape = tf.shape(input=image)
                 height, width = shape[0], shape[1]
 
-                image = tf.slice(image, [(height - self.img_rows) // 2, (width - self.img_cols) // 2, 0], [self.img_rows, self.img_cols, -1])
+                image = tf.slice(image, [(height - self.size) // 2, (width - self.size) // 2, 0], [self.size, self.size, -1])
             
-            image.set_shape([self.img_rows, self.img_cols, self.img_channels])
+            image.set_shape([self.size, self.size, 3])
 
             label = tf.cast(features['image/class/label'], dtype=tf.int32) 
             
@@ -133,8 +130,7 @@ class ImagenetModel(Model):
             processed_dataset = processed_dataset.prefetch(buffer_size=tf.data.experimental.AUTOTUNE)
 
             return raw_dataset, processed_dataset
-
-        self.img_rows, self.img_cols, self.img_channels = self.size, self.size, 3
+        
         self.data_dir = 'imagenet_files'
 
         self.mean = [123.68, 116.78, 103.94]
@@ -167,7 +163,7 @@ class ImagenetModel(Model):
 
         from tensorflow.keras import initializers, layers, models, optimizers, regularizers, utils
 
-        base_model = self.model_class(weights=None, include_top=False, input_shape=(self.img_rows, self.img_cols, self.img_channels))
+        base_model = self.model_class(weights=None, include_top=False, input_shape=(self.size, self.size, 3))
         x = base_model.output
 
         x = layers.GlobalAveragePooling2D()(x)

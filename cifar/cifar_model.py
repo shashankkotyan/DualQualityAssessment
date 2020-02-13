@@ -17,12 +17,6 @@ class CifarModel(Model):
         """
         TODO: Write Comment
         """
-        
-        self.img_rows, self.img_cols, self.img_channels = 32, 32, 3
-        
-        self.batch_size = 128
-        self.epochs     = 200
-        
         Model.__init__(self, args)
 
     def dataset(self):
@@ -85,6 +79,6 @@ class CifarModel(Model):
 
         from tensorflow.keras import layers, models
         
-        img_input = layers.Input(shape=(self.img_rows,self.img_cols,self.img_channels))
+        img_input = layers.Input(shape=(32, 32, 3))
         
         return models.Model(img_input, self.network(img_input))

@@ -37,10 +37,12 @@ if __name__ == "__main__":
     parser.add_argument('-s','--samples',               type=int, default=1000,  help='Number of samples to be used')
     parser.add_argument('-t','--targeted',              action='store_true',     help='If Targeted Attack otherwise Untargeted attack')
 
-    parser.add_argument('-f','--family_dataset',        type=int, default=2,     help='Family of the Dataset to be used')
+    parser.add_argument('-f','--family_dataset',        type=int, default=1,     help='Family of the Dataset to be used')
     parser.add_argument('-d','--use_dataset',           type=int, default=0,     help='Dataset to be used')
     
     parser.add_argument('-m','--model',                 type=int, default=3,     help='Model to be used')
+    parser.add_argument('--epochs',                     type=int, default=200,   help='Number of epochs Model Needs To be trained, if weight doesnt exist')
+    parser.add_argument('--batch_size',                 type=int, default=128,   help='Batch Size')
     
     parser.add_argument('-v','--verbose',               action="store_true",     help='Verbosity')
     

@@ -17,14 +17,7 @@ class MnistModel(Model):
     	"""
         TODO: Write Comment
         """
-        
-        self.img_rows, self.img_cols, self.img_channels = 28, 28, 1
-        
-        self.batch_size     = 128
-        self.epochs         = 30
-
         Model.__init__(self, args)
-
 
     def dataset(self):
     	"""
@@ -75,6 +68,6 @@ class MnistModel(Model):
 
         from tensorflow.keras import layers, models
 
-        img_input = layers.Input(shape=(self.img_rows,self.img_cols,self.img_channels))
+        img_input = layers.Input(shape=(28, 28, 1))
 
         return models.Model(img_input, self.network(img_input))

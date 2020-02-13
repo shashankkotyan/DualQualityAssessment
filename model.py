@@ -25,6 +25,9 @@ class Model:
         import os
 
         self.args = args
+        
+        self.batch_size = self.args.batch_size
+        self.epochs     = self.args.epochs
 
         self.dataset()
 
