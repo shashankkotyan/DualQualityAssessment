@@ -5,7 +5,7 @@ Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
 '''
 
-from mnist.mnist_model import MnistModel
+from networks.mnist.mnist_model import MnistModel
      
 
 class Conv(MnistModel):

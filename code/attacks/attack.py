@@ -33,14 +33,14 @@ class Attack():
         """
         if self.args.family_dataset == 0:
             
-            import mnist
+            from networks import mnist
 
             if self.args.model == 0:   model = mnist.mlp.MLP(self.args)
             elif self.args.model == 1: model = mnist.conv.Conv(self.args)
 
         elif self.args.family_dataset == 1:
             
-            import cifar
+            from networks import cifar
 
             if self.args.model == 0:   model = cifar.lenet.LeNet(self.args)
             elif self.args.model == 1: model = cifar.all_conv.AllConv(self.args)
@@ -54,7 +54,7 @@ class Attack():
 
         elif self.args.family_dataset == 1:
 
-            import imagenet
+            from networks import imagenet
 
             if self.args.model == 0:    model = imagenet.keras_applications.InceptionV3(self.args)
             elif self.args.model == 1:  model = imagenet.keras_applications.InceptionResNetV2(self.args)

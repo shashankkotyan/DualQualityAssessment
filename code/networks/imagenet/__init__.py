@@ -5,6 +5,6 @@ Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
 """
 
-import imagenet.imagenet_model
+import networks.imagenet.imagenet_model
 
-import imagenet.keras_applications
+import networks.imagenet.keras_applications

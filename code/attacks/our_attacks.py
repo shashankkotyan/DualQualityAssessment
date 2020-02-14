@@ -8,10 +8,10 @@ Email: shashankkotyan@gmail.com
 import numpy as np
 from itertools import product
 
-from differential_evolution import differential_evolution
+from attacks.differential_evolution import differential_evolution
 import cma
 
-from attack import Attack
+from attacks.attack import Attack
 
 
 class OurAttack(Attack):

@@ -7,7 +7,7 @@ Email: shashankkotyan@gmail.com
 
 from tensorflow.keras import applications
 
-from imagenet.imagenet_model import ImagenetModel
+from networks.imagenet.imagenet_model import ImagenetModel
 
 
 class ResNet(ImagenetModel):

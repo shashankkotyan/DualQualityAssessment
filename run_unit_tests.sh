@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd code
+
 for attack in pixel threshold 
 do
     for es in 0 1

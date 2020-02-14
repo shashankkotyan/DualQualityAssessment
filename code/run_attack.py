@@ -45,11 +45,12 @@ if __name__ == "__main__":
     parser.add_argument('--batch_size',                 type=int, default=128,   help='Batch Size')
     
     parser.add_argument('-v','--verbose',               action="store_true",     help='Verbosity')
+    parser.add_argument('--test',                       action="store_true",     help='Dry Run Attacks')
     
     args = parser.parse_args()
     print(args)
 
-    import OurAttacks
+    import attacks.our_attacks as OurAttacks
 
     if args.attack == 'pixel':         results = OurAttacks.PixelAttack(args).start()
     elif args.attack == 'threshold':   results = OurAttacks.ThresholdAttack(args).start()

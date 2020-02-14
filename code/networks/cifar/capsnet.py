@@ -9,7 +9,7 @@ import tensorflow as tf
 from tensorflow.keras import initializers, layers, models, backend as K
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-from cifar.cifar_model import CifarModel
+from networks.cifar.cifar_model import CifarModel
 
 
 class CapsNet(CifarModel):

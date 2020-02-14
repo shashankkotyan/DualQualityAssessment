@@ -83,19 +83,19 @@ pip install -r ./requirements.txt
     a) Run the Pixel Attack with the following command
 
     ```bash
-    python -u run_attack.py pixel [ARGS] > run.txt
+    python -u code/run_attack.py pixel [ARGS] > run.txt
     ```
 
     b) Run the Threshold Attack with the following command
 
     ```bash
-    python -u run_attack.py threshold [ARGS] > run.txt
+    python -u code/run_attack.py threshold [ARGS] > run.txt
     ```
 
 5. Calculate the statstics for the attacks.
 
 ```bash
-python -u run_stats.py > run_stats.txt     
+python -u code/run_stats.py > run_stats.txt     
 ```
 
 ## Arguments to run run_attack.py

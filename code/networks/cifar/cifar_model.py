@@ -5,7 +5,7 @@ Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
 """
 
-from model import Model
+from networks.model import Model
 
 
 class CifarModel(Model):

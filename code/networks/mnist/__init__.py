@@ -5,7 +5,7 @@ Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
 """
 
-import mnist.mnist_model
+import networks.mnist.mnist_model
 
-import mnist.conv
-import mnist.mlp
+import networks.mnist.conv
+import networks.mnist.mlp
