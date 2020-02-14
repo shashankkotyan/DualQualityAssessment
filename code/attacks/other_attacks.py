@@ -1,4 +1,4 @@
-from attack import Attack
+from attacks.base_attack import Attack
 from art import classifiers, attacks
 import numpy as np
 import pandas as pd
@@ -130,7 +130,7 @@ class CarliniLinf(OtherAttacks):
     
     def set_attacker(self):
     	self.attacker = attacks.evasion.CarliniLInfMethod(
-    													classifier=self.get_model(), , targeted=self.args.targeted, batch_size=self.batch_size,
+    													classifier=self.get_model(), targeted=self.args.targeted, batch_size=self.batch_size,
                                                         confidence=self.confidence, learning_rate=self.learning_rate, max_iter=self.max_iter, max_halving=self.max_halving, max_doubling=self.max_doubling, 
                                                         eps=self.eps)
 

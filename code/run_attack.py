@@ -50,10 +50,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print(args)
 
-    import attacks.our_attacks as OurAttacks
+    from attacks import our_attacks
 
-    if args.attack == 'pixel':         results = OurAttacks.PixelAttack(args).start()
-    elif args.attack == 'threshold':   results = OurAttacks.ThresholdAttack(args).start()
+    if args.attack == 'pixel':         results = our_attacks.PixelAttack(args).start()
+    elif args.attack == 'threshold':   results = our_attacks.ThresholdAttack(args).start()
 
     else: raise Exception('Unknown Attack, please choose a supported attack')
     

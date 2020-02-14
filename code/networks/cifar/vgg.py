@@ -5,7 +5,7 @@ Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
 """
 
-from netowrks.cifar.cifar_model import CifarModel
+from networks.cifar.cifar_model import CifarModel
 
 
 class VGG(CifarModel):

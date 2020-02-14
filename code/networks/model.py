@@ -65,7 +65,7 @@ class Model:
 
         return imgs
     
-     def load(self):
+    def load(self):
         """
         TODO: Write Comment
         """

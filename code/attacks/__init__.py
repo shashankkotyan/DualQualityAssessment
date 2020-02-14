@@ -5,7 +5,7 @@ Author: Shashank Kotyan
 Email: shashankkotyan@gmail.com
 """
 
-import attacks.attack
+import attacks.base_attack
 
 import attacks.our_attacks
 import attacks.other_attacks

@@ -11,7 +11,7 @@ from itertools import product
 from attacks.differential_evolution import differential_evolution
 import cma
 
-from attacks.attack import Attack
+from attacks.base_attack import Attack
 
 
 class OurAttack(Attack):
@@ -238,7 +238,7 @@ class ThresholdAttack(OurAttack):
         TODO: Write Comment
         """
 
-    self.attack_name = "Threshold"
+        self.attack_name = "Threshold"
 
     
     def get_bounds(self, th):

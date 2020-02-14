@@ -9,18 +9,18 @@ from networks.model import Model
 
 
 class MnistModel(Model):
-	"""
+    """
     TODO: Write Comment
     """
 
     def __init__(self, args):
-    	"""
+        """
         TODO: Write Comment
         """
         Model.__init__(self, args)
 
     def dataset(self):
-    	"""
+        """
         TODO: Write Comment
         """
         
@@ -37,8 +37,8 @@ class MnistModel(Model):
             self.num_classes  = 10
             self.dataset_name = 'Mnist'
             self.class_names = [
-            					'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-            				   ]
+                                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+                               ]
 
             __datasets = datasets.mnist
 
@@ -47,8 +47,8 @@ class MnistModel(Model):
             self.num_classes  = 10
             self.dataset_name = 'FashionMnist'
             self.class_names  = [
-            					 'T-Shirt/Top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'AnkleBoot'
-            					]
+                                 'T-Shirt/Top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'AnkleBoot'
+                                ]
 
             __datasets = datasets.fashion_mnist
             
@@ -62,7 +62,7 @@ class MnistModel(Model):
         self.iterations_test  = (self.num_images['test']  // self.batch_size) + 1   
       
     def build_model(self): 
-    	"""
+        """
         TODO: Write Comment
         """ 
 
