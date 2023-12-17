@@ -2,25 +2,30 @@
 
 This GitHub repository contains the official code for the papers,
 
-> [Robustness Assessment for Adversarial Machine Learning: Problems, Solutions and a Survey of Current Neural Networks and Defenses](https://arxiv.org/abs/1906.06026)\
-> Danilo Vasconcellos Vargas, Shashank Kotyan\
-> _arXiv:1906.06026_.
+> [Adversarial robustness assessment: Why in evaluation both L0 and L∞ attacks are necessary](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0265723)\
+> Shashank Kotyan and Danilo Vasconcellos Vargas, \
+> PLOS One (2022).
 
 > [One pixel attack for fooling deep neural networks](https://ieeexplore.ieee.org/abstract/document/8601309)\
 > Jiawei Su, Danilo Vasconcellos Vargas, Kouichi Sakurai\
-> _IEEE Transactions on Evolutionary Computation (2019), 23(5), 828-841_.
+> IEEE Transactions on Evolutionary Computation (2019).
  
 ## Citation
 
 If this work helps your research and/or project in anyway, please cite:
 
 ```bibtex
-@article{vargas2019robustness,
-  title   = {Robustness Assessment for Adversarial Machine Learning: Problems, Solutions and a Survey of Current Neural Networks and Defenses},
-  author  = {Vargas, Danilo Vasconcellos and Kotyan, Shashank},
-  journal = {arXiv preprint arXiv:1906.06026},
-  year    = {2019}
+@article{kotyan2022adversarial,
+  title={Adversarial robustness assessment: Why in evaluation both L 0 and L∞ attacks are necessary},
+  author={Kotyan, Shashank and Vargas, Danilo Vasconcellos},
+  journal={PloS one},
+  volume={17},
+  number={4},
+  pages={e0265723},
+  year={2022},
+  publisher={Public Library of Science San Francisco, CA USA}
 }
+
 @article{su2019one,
   title     = {One pixel attack for fooling deep neural networks},
   author    = {Su, Jiawei and Vargas, Danilo Vasconcellos and Sakurai, Kouichi},
@@ -33,7 +38,7 @@ If this work helps your research and/or project in anyway, please cite:
 }
 ```
 
-## Testing Environment 
+## Testing Environment
 
 The code is tested on Ubuntu 18.04.3 with Python 3.7.4.
 
